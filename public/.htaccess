@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Força HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redireciona www para sem www
+RewriteCond %{HTTP_HOST} ^www\.safewaylog\.com\.br [NC]
+RewriteRule ^(.*)$ https://safewaylog.com.br/$1 [L,R=301]
